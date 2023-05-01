@@ -11,10 +11,10 @@ namespace BBMS.Models
         public string UserId { get; set; }
         public int Id { get; set; }
 
-        [Required, Display(Name ="Petient Name")]
+        [Required, Display(Name ="Patient Name")]
         public string PetientName { get; set; }
 
-        [Required, Display(Name = "Petient Age")]
+        [Required, Display(Name = "Patient Age")]
         public int PetientAge { get; set; }
 
         [Required]
