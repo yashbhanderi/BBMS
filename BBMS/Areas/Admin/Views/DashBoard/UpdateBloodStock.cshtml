@@ -1,0 +1,44 @@
+﻿@model BBMS.Models.BloodGroupModel
+@inject BBMS.Repository.IBloodGroupRepository _bloodRepo;
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    @{
+        ViewData["Title"] = "UpdateBloodStock";
+        Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+    }
+<div class="container offset-4 m-5">
+    <h1 class="display-4" style="font-size:20px">Update Blood Unit</h1>
+    <hr />
+    @if (ViewBag.IsSuccess == true)
+    {
+        <div class="alert alert-success alert-dismissible fade show w-50" role="alert">
+            <strong>Successfully Updated.</strong>
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="UpdateBloodStock">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Blood Group</label>
+                    <select asp-for="Id" class="form-control"
+                            asp-items="(await _bloodRepo.GetAllBloodGroup()).
+                        Select(x=> new SelectListItem() { Text=x.BloodGroup, Value=x.Id.ToString()})">
+                    </select>
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Unit" class="control-label"></label>
+                    <input asp-for="Unit" class="form-control" />
+                    <span asp-validation-for="Unit" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    
+
+

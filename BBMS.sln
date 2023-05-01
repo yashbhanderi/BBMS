@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BBMS", "BBMS\BBMS.csproj", "{57F91644-2D6C-46A5-A60F-5F70608D921B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57F91644-2D6C-46A5-A60F-5F70608D921B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F91644-2D6C-46A5-A60F-5F70608D921B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F91644-2D6C-46A5-A60F-5F70608D921B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F91644-2D6C-46A5-A60F-5F70608D921B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2745B4A-35E4-47E6-B5E6-8E77F2500D18}
+	EndGlobalSection
+EndGlobal

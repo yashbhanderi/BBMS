@@ -1,0 +1,15 @@
+﻿@using BBMS.Data
+@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> _signInManager
+@if (_signInManager.IsSignedIn(User))
+{
+    <li class="nav-item dropdown mr-4">
+        <a class="nav-item dropdown-toggle text-light" role="button" id="navbardropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Hello, @(User.FindFirst("UserFirstName").Value + " " + User.FindFirst("UserLastName").Value)
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbardropdown">
+            <a class="dropdown-item" asp-controller="Account" asp-action="changepassword">Change Password</a>
+            <a class="dropdown-item" asp-controller="Account" asp-action="Logout">Logout</a>
+
+        </div>
+    </li>
+}

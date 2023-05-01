@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<h3 class="display-4 text-center m-3" style="font-size:30px">Blood Unit</h3><hr />
+<div class="container justify-content-center m-4">
+    <div class="container bootstrap snippet">
+        <div class="row">
+            @foreach (var item in Model)
+	        {
+                <div class="col-lg-3 col-sm-2">
+                    <div class="circle-tile">
+                        <a href="#"><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+                        <div class="circle-tile-content red">
+                            <div class="circle-tile-description text-light"> @item.BloodGroup </div>
+                            <div class="circle-tile-number text-light ">@item.Unit</div>
+                        </div>
+                    </div>
+                </div>
+	        }
+        </div>
+    </div>
+</div>

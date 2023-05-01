@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<section class="section-hero">
+    <!-- 1.  Now we need to make our hero section display grid and need to center the content in the page.
+
+         2. To acheive that we need to create a div container inside of our section that contains all the text and img -->
+
+    <div class="hero container-fluid">
+        <div class="hero-text-box">
+            <h1 class="heading-primary">
+                Welcome!
+            </h1>
+            <p class="hero-description">
+                The need for blood is constant, your donation could be the difference between life and death.
+            </p>
+            <a class="btn btn--fill margin-right-btn" asp-controller="account" asp-action="login" asp-route-returnUrl="@Context.Request.Path">
+                Login
+            </a>
+            <a class="btn btn--outline margin-right-btn" asp-controller="account" asp-action="signup">
+                SignUp
+            </a>
+        </div>
+        <div class="hero-img-box">
+            <img src="~/Images/home1.png"
+                 alt="Woman enjoying food, meals in storage container, and food bowls on a table"
+                 class="hero-img" />
+        </div>
+        <div class="delivered-meals">
+            <div class="delivered-imgs">
+                <img src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-1.jpg" alt="Customer photo" />
+                <img src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-2.jpg" alt="Customer photo" />
+                <img src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-3.jpg" alt="Customer photo" />
+                <img src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-4.jpg" alt="Customer photo" />
+                <img src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-5.jpg" alt="Customer photo" />
+                <img src="https://prayagtandon.github.io/Omnifood-Project/Hero-section/img/customers/customer-6.jpg" alt="Customer photo" />
+            </div>
+            <p class="delivered-text">
+                <span>250+</span> Life's are saved &hearts;
+            </p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,70 @@
+﻿@using BBMS
+@using BBMS.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<form method="post">
+
+    <div class="container mt-2 ">
+        <h3 class="display-4 m-3 text-lg-center" style="font-size:25px">Donation Requests</h3>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Disease</th>
+                    <th scope="col">Blood Group</th>
+                    <th scope="col">Unit</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            @{
+                int i = 1;
+            }
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="text-center">
+                        <td>@(i++)</td>
+                        <td>@item.DonorName</td>
+                        <td>@item.DonorAge</td>
+                        <td>@item.Disease</td>
+                        <td>@item.BloodGroup</td>
+                        <td>@item.Unit</td>
+                        <td>@item.RequestDate</td>
+                        @if (item.RequestStatus.ToString() == "Pending")
+                        {
+                            <td>
+                                <input type="submit" class="btn btn-success" value="Accept"
+                                       asp-area="admin" asp-controller="dashboard" asp-action="AcceptRequestForDoner" asp-route-id="@item.Id" />
+                                <input type="submit" class="btn btn-danger" value="Reject"
+                                       asp-area="admin" asp-controller="dashboard" asp-action="RejectRequestForDoner" asp-route-id="@item.Id" />
+                            </td>
+                        }
+                        else if (item.RequestStatus.ToString() == "Accepted")
+                        {
+                            <td class="text-green">@item.Unit Unit added in Stock.</td>
+                        }
+                        else
+                        {
+                            <td class="text-red">Request Rejected.</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>
+
+
+@*<td>
+        <button type="submit" asp-area="admin"
+                asp-controller="dashboard" asp-action="delete" asp-rout-id="@item.id"
+                class="btn btn-secondary">
+            @item.RequestStatus
+        </button>
+    </td>
+    <td></td>*@

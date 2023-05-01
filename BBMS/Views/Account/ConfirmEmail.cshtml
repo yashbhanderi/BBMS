@@ -1,0 +1,41 @@
+﻿@model BBMS.Models.EmailConfirmModel
+
+@{
+    ViewData["Title"] = "ConfirmEmail";
+}
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            @if (Model.EmailVerified == true)
+            {
+                <div class="alert alert-success" role="alert">
+                    <p>Your Email has been Verified Succesfully.</p>
+                </div>
+            }
+            else
+            {
+                @if (Model.EmailSent)
+                {
+                    <p>Confirmation Email Sent on your registred email.</p>
+                }
+                else
+                {
+                    <p>We Have sent an email on your email id. Click on the link to login.</p>
+                }
+                <form asp-controller="Account" asp-action="ConfirmEmail">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Email" />
+                    <p>Did not get email of deleted by mistake?</p>
+                    <div class="form-group">
+                        <input type="submit" value="Resend Confirmation Email" class="btn btn-primary" />
+                    </div>
+                </form>
+
+            }
+
+        </div>
+    </div>
+</div>
+

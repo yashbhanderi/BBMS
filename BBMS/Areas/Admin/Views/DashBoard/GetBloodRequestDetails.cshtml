@@ -1,0 +1,69 @@
+﻿@using BBMS
+@using BBMS.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<form method="post">
+
+    <div class="container mt-2 ">
+        <h3 class="display-4 m-3 text-lg-center" style="font-size:25px">Blood Requests</h3>
+        @if (ViewBag.IsSuccess == "failed")
+        {
+            <div class="container">
+                <div class="offset-3 alert-danger alert-dismissible fade show w-50 text-center" role="alert">
+                    <strong>Sorry We can't Accept Request due to insufficient stock.</strong>
+                </div>
+            </div>
+        }
+        else if (ViewBag.IsSuccess == "Accept" || ViewBag.IsSuccess == "Reject")
+        {
+            <div class="container">
+                <div class="offset-3 alert-success alert-dismissible fade show w-50 text-center" role="alert">
+                    <strong>Request Updated Successfully.</strong>
+                </div>
+            </div>
+        }   
+        <table class="table table-striped table-hover m-2">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Disease</th>
+                    <th scope="col">Blood Group</th>
+                    <th scope="col">Unit</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            @{
+                int i = 1;
+            }
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="text-center">
+                        @if (item.RequestStatus.ToString() == "Pending")
+                        {
+                            <td>@(i++)</td>
+                            <td>@item.PetientName</td>
+                            <td>@item.PetientAge</td>
+                            <td>@item.Disease</td>
+                            <td>@item.BloodGroup</td>
+                            <td>@item.Unit</td>
+                            <td>@item.RequestDate</td>
+                            <td>
+                                <input type="submit" class="btn btn-success" value="Accept"
+                                       asp-area="admin" asp-controller="dashboard" asp-action="acceptrequestforpetient" asp-route-id="@item.Id" />
+                                <input type="submit" class="btn btn-danger" value="Reject"
+                                       asp-area="admin" asp-controller="dashboard" asp-action="rejectrequestforpetient" asp-route-id="@item.Id" />
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>
+

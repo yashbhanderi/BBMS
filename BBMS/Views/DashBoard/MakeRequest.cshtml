@@ -1,0 +1,56 @@
+﻿@inject BBMS.Repository.IBloodGroupRepository _bloodRepo;
+@model BBMS.Models.PetientRequestModel
+
+@{
+    ViewData["Title"] = "MakeRequest";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+<div class="container m-5">
+    <h1 class="display-4" style="font-size:20px">Add Request</h1>
+    <hr />
+    @if (ViewBag.IsSuccess == true)
+    { 
+        <div class="alert alert-success alert-dismissible fade show w-50" role="alert">
+            <strong>Your Request sent successfully. </strong><br />Click <a asp-action="getallrequest" asp-controller="dashboard">Here</a> for details.
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="MakeRequest">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="PetientName" class="control-label"></label>
+                    <input asp-for="PetientName" class="form-control" />
+                    <span asp-validation-for="PetientName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PetientAge" class="control-label"></label>
+                    <input asp-for="PetientAge" class="form-control" />
+                    <span asp-validation-for="PetientAge" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Disease" class="control-label"></label>
+                    <input asp-for="Disease" class="form-control" />
+                    <span asp-validation-for="Disease" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BloodGroupId" class="control-label"></label>
+                    <select asp-for="BloodGroupId" class="form-control"
+                            asp-items="(await _bloodRepo.GetAllBloodGroup()).
+                            Select(x=>new SelectListItem() { Text=x.BloodGroup, Value=x.Id.ToString()})"></select>
+                    <span asp-validation-for="BloodGroupId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Unit" class="control-label"></label>
+                    <input asp-for="Unit" class="form-control" />
+                    <span asp-validation-for="Unit" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

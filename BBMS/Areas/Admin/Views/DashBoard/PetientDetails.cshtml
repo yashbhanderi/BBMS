@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<form method="post">
+    <div class="container mt-2 ">
+        <h3 class="display-4 m-3 text-lg-center" style="font-size:25px">Petient Details</h3>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int counter = 1;
+                }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@(counter++)</td>
+                        <td>@item.Fname</td>
+                        <td>@item.Lname</td>
+                        <td>@item.Email</td>
+                        <td>
+                            <input type="submit" class="btn btn-danger" asp-area="admin" asp-controller="dashboard" asp-action="deleteuser" asp-route-email="@item.Email" value="Delete">
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>
+

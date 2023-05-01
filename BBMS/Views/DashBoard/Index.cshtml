@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "_LayoutDashboard";
+}
+
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<div class="container justify-content-center m-4">
+    <div class="container bootstrap snippet">
+        <div class="row">
+            <div class="col-lg-3 col-sm-2">
+                <div class="circle-tile ">
+                    <a href="#"><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+                    <div class="circle-tile-content red">
+                        <div class="circle-tile-description text-faded"> Total Request </div>
+                        <div class="circle-tile-number text-faded ">@ViewBag.TotalRequest</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-2">
+                <div class="circle-tile ">
+                    <a href="#"><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+                    <div class="circle-tile-content red ">
+                        <div class="circle-tile-description text-faded"> Request Accepted </div>
+                        <div class="circle-tile-number text-faded ">@ViewBag.AcceptRequest</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-2">
+                <div class="circle-tile ">
+                    <a href="#"><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+                    <div class="circle-tile-content red ">
+                        <div class="circle-tile-description text-faded"> Request Pending </div>
+                        <div class="circle-tile-number text-faded ">@ViewBag.PendingRequest</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-2">
+                <div class="circle-tile ">
+                    <a href="#"><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+                    <div class="circle-tile-content red ">
+                        <div class="circle-tile-description text-faded"> Request Rejected </div>
+                        <div class="circle-tile-number text-faded ">@ViewBag.RejectRequest</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
