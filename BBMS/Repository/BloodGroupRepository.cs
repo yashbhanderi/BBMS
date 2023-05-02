@@ -35,10 +35,10 @@ namespace BBMS.Repository
             }).ToListAsync();
         }
 
-        public async Task<int> AddPetientRequest(PetientRequestModel model)
+        public async Task<int> AddPetientRequest(PatientRequestModel model)
         {
             
-            var newReq = new PetientDetails()
+            var newReq = new PatientDetails()
             {
                 UserId =_userService.GetUserId(),
                 PatientName = model.PetientName,
@@ -54,11 +54,11 @@ namespace BBMS.Repository
             return newReq.Id;
         }
 
-        public async Task<List<PetientRequestModel>> GetPetientRequestDetails()
+        public async Task<List<PatientRequestModel>> GetPetientRequestDetails()
         {
             
-            return await _context.PetientDetails.Where(e => e.UserId == _userService.GetUserId()).
-                Select(req => new PetientRequestModel()
+            return await _context.PatientDetails.Where(e => e.UserId == _userService.GetUserId()).
+                Select(req => new PatientRequestModel()
                 {
                     Id=req.Id,
                     PetientName = req.PatientName,
@@ -122,10 +122,10 @@ namespace BBMS.Repository
                     RequestStatus = req.RequestStatus.ToString()
                 }).ToListAsync();
         }
-        public async Task<List<PetientRequestModel>> GetPetientRequestsAdmin()
+        public async Task<List<PatientRequestModel>> GetPetientRequestsAdmin()
         {
-            return await _context.PetientDetails.
-                Select(req => new PetientRequestModel()
+            return await _context.PatientDetails.
+                Select(req => new PatientRequestModel()
                 {
                     Id = req.Id,
                     PetientName = req.PatientName,
@@ -141,7 +141,7 @@ namespace BBMS.Repository
 
         public bool UpdateRequestStatusForPetient(int id, string action)
         {
-            var result = _context.PetientDetails.ToList().Where(x => x.Id == id).SingleOrDefault();
+            var result = _context.PatientDetails.ToList().Where(x => x.Id == id).SingleOrDefault();
             var totalUnit = _context.BloodStock.ToList().Where(x => x.Id == result.BloodGroupId).FirstOrDefault();
             if (action == "reject")
             {
@@ -201,7 +201,7 @@ namespace BBMS.Repository
         }
         public List<object> GetRequestStatusCount()
         {
-            var RequestList = _context.PetientDetails.ToList();//.Where(u => u.UserId.Equals(_userService.GetUserId())).Select(s => s.RequestStatus.ToString() == "Pending");
+            var RequestList = _context.PatientDetails.ToList();//.Where(u => u.UserId.Equals(_userService.GetUserId())).Select(s => s.RequestStatus.ToString() == "Pending");
             var PendingRequest= RequestList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Pending").Select(s => s.RequestStatus.ToString() == "Pending").Count();
             var AcceptRequest = RequestList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Accepted").Select(s => s.RequestStatus.ToString() == "Accepted").Count();
             var RejectRequest = RequestList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Rejected").Select(s => s.RequestStatus.ToString() == "Rejected").Count();

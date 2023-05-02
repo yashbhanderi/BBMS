@@ -13,7 +13,7 @@ namespace BBMS.Data
 
         public int Units { get; set; }
 
-        public ICollection<PetientDetails> PetientDetails { get; set; }
+        public ICollection<PatientDetails> PatientDetails { get; set; }
 
         public ICollection<DonorDetails> DonorDetails { get; set; }
     }

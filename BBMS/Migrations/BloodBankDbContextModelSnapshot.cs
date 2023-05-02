@@ -152,7 +152,7 @@ namespace BBMS.Migrations
                     b.ToTable("DonorDetails");
                 });
 
-            modelBuilder.Entity("BBMS.Data.PetientDetails", b =>
+            modelBuilder.Entity("BBMS.Data.PatientDetails", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -190,7 +190,7 @@ namespace BBMS.Migrations
 
                     b.HasIndex("BloodStockId");
 
-                    b.ToTable("PetientDetails");
+                    b.ToTable("PatientDetails");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -331,10 +331,10 @@ namespace BBMS.Migrations
                         .HasForeignKey("BloodStockId");
                 });
 
-            modelBuilder.Entity("BBMS.Data.PetientDetails", b =>
+            modelBuilder.Entity("BBMS.Data.PatientDetails", b =>
                 {
                     b.HasOne("BBMS.Data.BloodStock", "BloodStock")
-                        .WithMany("PetientDetails")
+                        .WithMany("PatientDetails")
                         .HasForeignKey("BloodStockId");
                 });
 

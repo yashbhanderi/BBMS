@@ -197,7 +197,7 @@ namespace BBMS.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PetientDetails",
+                name: "PatientDetails",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -269,7 +269,7 @@ namespace BBMS.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_PetientDetails_BloodStockId",
-                table: "PetientDetails",
+                table: "PatientDetails",
                 column: "BloodStockId");
         }
 
@@ -294,7 +294,7 @@ namespace BBMS.Migrations
                 name: "DonorDetails");
 
             migrationBuilder.DropTable(
-                name: "PetientDetails");
+                name: "PatientDetails");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

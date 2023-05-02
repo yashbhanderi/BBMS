@@ -29,13 +29,24 @@ namespace BBMS.Controllers
             {
                 return RedirectToAction("Index", "DashBoard", new { area = "admin" });
             }
-            var RequestList = _context.PetientDetails.ToList();//.Where(u => u.UserId.Equals(_userService.GetUserId())).Select(s => s.RequestStatus.ToString() == "Pending");
-            ViewBag.PendingRequest = RequestList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Pending").Select(s => s.RequestStatus.ToString() == "Pending").Count();
-            ViewBag.AcceptRequest = RequestList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Accepted").Select(s => s.RequestStatus.ToString() == "Accepted").Count();
-            ViewBag.RejectRequest = RequestList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Rejected").Select(s => s.RequestStatus.ToString() == "Rejected").Count();
-            ViewBag.TotalRequest = RequestList.Where(u => u.UserId.Equals(_userService.GetUserId())).Select(s => s.RequestStatus).Count();
-            //var result = _bloodGroupRepository.GetRequestStatusCount();
-            return View();
+            else if(this.User.IsInRole("Patient")) {
+                var RenderList = _context.PatientDetails.ToList();//.Where(u => u.UserId.Equals(_userService.GetUserId())).Select(s => s.RequestStatus.ToString() == "Pending");
+                ViewBag.PendingRequest = RenderList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Pending").Select(s => s.RequestStatus.ToString() == "Pending").Count();
+                ViewBag.AcceptRequest = RenderList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Accepted").Select(s => s.RequestStatus.ToString() == "Accepted").Count();
+                ViewBag.RejectRequest = RenderList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Rejected").Select(s => s.RequestStatus.ToString() == "Rejected").Count();
+                ViewBag.TotalRequest = RenderList.Where(u => u.UserId.Equals(_userService.GetUserId())).Select(s => s.RequestStatus).Count();
+                //var result = _bloodGroupRepository.GetRequestStatusCount();
+                return View();
+            }
+            else {
+                var RenderList = _context.DonorDetails.ToList();//.Where(u => u.UserId.Equals(_userService.GetUserId())).Select(s => s.RequestStatus.ToString() == "Pending");
+                ViewBag.PendingRequest = RenderList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Pending").Select(s => s.RequestStatus.ToString() == "Pending").Count();
+                ViewBag.AcceptRequest = RenderList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Accepted").Select(s => s.RequestStatus.ToString() == "Accepted").Count();
+                ViewBag.RejectRequest = RenderList.Where(u => u.UserId.Equals(_userService.GetUserId()) && u.RequestStatus.ToString() == "Rejected").Select(s => s.RequestStatus.ToString() == "Rejected").Count();
+                ViewBag.TotalRequest = RenderList.Where(u => u.UserId.Equals(_userService.GetUserId())).Select(s => s.RequestStatus).Count();
+                //var result = _bloodGroupRepository.GetRequestStatusCount();
+                return View();
+            }
         }
         [Route("makerequest")]
         public IActionResult MakeRequest(bool isSuccess=false)
@@ -45,7 +56,7 @@ namespace BBMS.Controllers
         }
 
         [HttpPost("makerequest")]
-        public async Task<IActionResult> MakeRequest(PetientRequestModel model)
+        public async Task<IActionResult> MakeRequest(PatientRequestModel model)
         {
             if (ModelState.IsValid)
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BBMS.Data
 {
-    public class PetientDetails
+    public class PatientDetails
     {
         public int Id { get; set; }
 

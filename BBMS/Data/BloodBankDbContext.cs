@@ -14,7 +14,7 @@ namespace BBMS.Data
         {
 
         }
-        public DbSet<PetientDetails> PetientDetails { get; set; }
+        public DbSet<PatientDetails> PatientDetails { get; set; }
 
         public DbSet<BloodStock> BloodStock { get; set; }
 

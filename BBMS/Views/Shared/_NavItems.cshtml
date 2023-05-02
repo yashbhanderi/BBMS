@@ -9,7 +9,6 @@
         <li><a style="text-decoration:none;" asp-controller="dashboard" asp-action="index"><i class="fas fa-home"></i>Home</a></li>
         <li><a style="text-decoration:none;" asp-controller="dashboard" asp-action="makerequest"><i class="fas fa-sync-alt"></i>Make Request</a></li>
         <li><a style="text-decoration:none;" asp-controller="dashboard" asp-action="getallrequest"><i class="fas fa-history"></i>Request History</a></li>
-
     </ul>
 }
 else if (this.User.IsInRole("Donor"))
@@ -28,7 +27,7 @@ else if (this.User.IsInRole("Admin"))
     <ul>
         <li><a style="text-decoration:none;" asp-area="admin" asp-controller="dashboard" asp-action="index" ><i class="fas fa-home"></i>Home</a></li>
         <li><a style="text-decoration:none;" asp-area="admin" asp-controller="dashboard" asp-action="donordetails"><i class="fas fa-user"></i>Donor</a></li>
-        <li><a style="text-decoration:none;" asp-area="admin" asp-controller="dashboard" asp-action="petientdetails"><i class="fas fa-user-injured"></i>Patient</a></li>
+        <li><a style="text-decoration:none;" asp-area="admin" asp-controller="dashboard" asp-action="patientdetails"><i class="fas fa-user-injured"></i>Patient</a></li>
         <li><a style="text-decoration:none;" asp-area="admin" asp-controller="dashboard" asp-action="getdonationdetails"><i class="fas fa-hand-holding-medical"></i>Donations</a></li>
         <li><a style="text-decoration:none;" asp-area="admin" asp-controller="dashboard" asp-action="getbloodrequestdetails"><i class="fas fa-sync-alt"></i>Blood Requests</a></li>
         <li><a style="text-decoration:none;" asp-area="admin" asp-controller="dashboard" asp-action="bloodrequesthistory"><i class="fas fa-history"></i>Request History</a> </li>

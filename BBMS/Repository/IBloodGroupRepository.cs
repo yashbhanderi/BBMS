@@ -7,14 +7,14 @@ namespace BBMS.Repository
 {
     public interface IBloodGroupRepository
     {
-        Task<int> AddPetientRequest(PetientRequestModel model);
+        Task<int> AddPetientRequest(PatientRequestModel model);
         Task<List<BloodGroupModel>> GetAllBloodGroup();
-        Task<List<PetientRequestModel>> GetPetientRequestDetails();
+        Task<List<PatientRequestModel>> GetPetientRequestDetails();
         List<object> GetRequestStatusCount();
         Task<int> AddDonateRequest(DonateRequestModel model);
         Task<List<DonateRequestModel>> GetDonateRequestDetails();
         Task<List<DonateRequestModel>> GetDonationDetailsAdmin();
-        Task<List<PetientRequestModel>> GetPetientRequestsAdmin();
+        Task<List<PatientRequestModel>> GetPetientRequestsAdmin();
         bool UpdateRequestStatusForPetient(int id, string action);
         bool UpdateRequestStatusForDonor(int id, string action);
         bool UpdateBloodStock(BloodGroupModel model);

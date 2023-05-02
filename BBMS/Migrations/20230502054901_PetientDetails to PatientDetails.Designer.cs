@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BBMS.Migrations
 {
     [DbContext(typeof(BloodBankDbContext))]
-    [Migration("20230430151504_initial")]
-    partial class initial
+    [Migration("20230502054901_PetientDetails to PatientDetails")]
+    partial class PetientDetailstoPatientDetails
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

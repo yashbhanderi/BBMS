@@ -25,8 +25,8 @@ namespace BBMS.Areas.Admin.Controllers
             var result = await _bloodGroupRepository.GetAllBloodGroup();
             return View(result);
         }
-        [Route("petientdetails")]
-        public IActionResult PetientDetails()
+        [Route("patientdetails")]
+        public IActionResult PatientDetails()
         {
             var result = _accountRepository.GetPetientUserDetails();
             return View(result);

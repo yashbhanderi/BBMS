@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace BBMS.Models
 {
-    public class PetientRequestModel
+    public class PatientRequestModel
     {
         public string UserId { get; set; }
         public int Id { get; set; }
 
-        [Required, Display(Name ="Patient Name")]
+        [Required, Display(Name ="Petient Name")]
         public string PetientName { get; set; }
 
-        [Required, Display(Name = "Patient Age")]
+        [Required, Display(Name = "Petient Age")]
         public int PetientAge { get; set; }
 
         [Required]
