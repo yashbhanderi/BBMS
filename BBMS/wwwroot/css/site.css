@@ -91,7 +91,7 @@ body {
 
 
 .section-hero {
-    background-color: #fdf2e9;
+    background-color: #eff6ff;
 }
 
 .hero {
@@ -212,118 +212,6 @@ body {
     }
 }
 
-/*LOGIN CSS*/
-
-#login-box {
-    width: 1500px;
-    height: 600px;
-    background-color: #1861ac;
-    color: #fff;
-    font-size: 32px;
-}
-
-/*Login css*/
-
-.login-box {
-    width: 280px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #295650;
-    padding: 40px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #000;
-}
-
-    .login-box h1 {
-        color: #fff;
-        text-align: center;
-        font-size: 24px;
-        margin-top: 0;
-    }
-
-    .login-box p {
-        margin: 0;
-        padding: 0;
-        font-weight: bold;
-        color: #fff;
-    }
-
-    .login-box label {
-        margin: 0;
-        padding: 0;
-        font-weight: bold;
-        color: #fff; 
-    }
-
-    .login-box input {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-        .login-box input[type="text"],
-        .login-box input[type="password"] {
-            border: none;
-            border-bottom: 1px solid #fff;
-            background: transparent;
-            outline: none;
-            height: 40px;
-            color: #fff;
-            font-size: 16px;
-        }
-
-        .login-box input[type="submit"] {
-            border: none;
-            outline: none;
-            height: 40px;
-            background: #1DC48C;
-            color: #fff;
-            font-size: 18px;
-            border-radius: 20px;
-        }
-
-            .login-box input[type="submit"]:hover {
-                cursor: pointer;
-                background: #1DC48C;
-                color: #000;
-            }
-
-    .login-box a {
-        color: #fff;
-        font-size: 14px;
-        font-weight: bold;
-        text-decoration: none;
-    }
-
-        .login-box a:hover {
-            text-decoration: underline;
-        }
-
-.avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: absolute;
-    top: -50px;
-    left: calc(50% - 50px);
-}
-
-.invit-only {
-    margin: 0px 0;
-    color: #fff;
-    font-size: 14px;
-}
-
-    .invit-only label {
-        display: flex;
-        align-items: center;
-    }
-
-        .invit-only label input[type="checkbox"] {
-            margin-right: 1px;
-        }
-
-.referral-code {
-    color: white;
+#RoleName {
+    font-size: 1.3rem;
 }
