@@ -137,7 +137,7 @@ namespace BBMS.Repository
 
         public List<ApplicationUser> GetPetientUserDetails()
         {
-            List<string> userids =  _context.UserRoles.Where(a => a.RoleId == "1").Select(b => b.UserId).Distinct().ToList();
+            List<string> userids =  _context.UserRoles.Where(a => a.RoleId == "2").Select(b => b.UserId).Distinct().ToList();
 
             List<ApplicationUser> listUsers = _context.Users.Where(a => userids.Any(c => c == a.Id)).ToList();
 
@@ -145,7 +145,7 @@ namespace BBMS.Repository
         }
         public List<ApplicationUser> GetDonorUserDetails()
         {
-            List<string> userids = _context.UserRoles.Where(a => a.RoleId == "2").Select(b => b.UserId).Distinct().ToList();
+            List<string> userids = _context.UserRoles.Where(a => a.RoleId == "3").Select(b => b.UserId).Distinct().ToList();
 
             List<ApplicationUser> listUsers = _context.Users.Where(a => userids.Any(c => c == a.Id)).ToList();
 
